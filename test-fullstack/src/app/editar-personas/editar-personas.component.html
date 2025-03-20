@@ -1,0 +1,57 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="guardarPersona()">
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" formControlName="nombre" type="text" />
+    <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched">
+      <small *ngIf="form.get('nombre')?.hasError('required')"
+        >El nombre es obligatorio.</small
+      >
+      <small *ngIf="form.get('nombre')?.hasError('minlength')"
+        >El nombre debe tener al menos 3 caracteres.</small
+      >
+    </div>
+
+    <label for="apellido">Apellido:</label>
+    <input id="apellido" formControlName="apellido" type="text" />
+    <div *ngIf="form.get('apellido')?.invalid && form.get('apellido')?.touched">
+      <small *ngIf="form.get('apellido')?.hasError('required')"
+        >El apellido es obligatorio.</small
+      >
+    </div>
+
+    <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+    <input
+      id="fecha_nacimiento"
+      formControlName="fecha_nacimiento"
+      type="date"
+    />
+    <div
+      *ngIf="
+        form.get('fecha_nacimiento')?.invalid &&
+        form.get('fecha_nacimiento')?.touched
+      "
+    >
+      <small *ngIf="form.get('fecha_nacimiento')?.hasError('required')"
+        >La  fecha de nacimiento es obligatoria.</small
+      >
+    </div>
+
+    <label for="puesto">Puesto:</label>
+    <input id="puesto" formControlName="puesto" type="text" />
+    <div *ngIf="form.get('puesto')?.invalid && form.get('puesto')?.touched">
+      <small *ngIf="form.get('puesto')?.hasError('required')"
+        >El puesto es obligatorio.</small
+      >
+    </div>
+
+    <label for="sueldo">Sueldo:</label>
+    <input id="sueldo" formControlName="sueldo" type="number" />
+    <div *ngIf="form.get('sueldo')?.invalid && form.get('sueldo')?.touched">
+      <small *ngIf="form.get('sueldo')?.hasError('required')"
+        >El sueldo es obligatorio.</small
+      >
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Enviar</button>
+  </form>
+</div>
