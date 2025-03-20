@@ -1,0 +1,19 @@
+.btn {
+    display: flex;
+    justify-content: left;
+    margin: 0 0 0 717px;
+    padding: 50px 0 0 ;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 50px;
+}
+
+.row {
+    padding: 0 10px 0 0;
+    width: auto;
+}

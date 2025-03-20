@@ -1,0 +1,37 @@
+<div>
+    <div class="btn">
+      <button [routerLink]="['/personas/crear']">Crear Nuevo</button>
+    </div>
+    <div class="form">
+      <div class=row>
+        Opciones
+      </div>
+      <div class=row>ID</div>
+      <div class=row>Nombre</div>
+      <div class=row>Apellido</div>
+      <div class=row>Fecha de nacimiento</div>
+      <div class=row>Puesto</div>
+      <div class=row>Sueldo</div>
+    </div>
+
+    <div *ngIf="personas.length > 0; else loading">
+      <div class="form" *ngFor="let persona of personas">
+        <div class="row">
+          <button [routerLink]="['/personas/editar', persona.id]">Editar</button>
+          <button>Eliminar</button>
+        </div>
+  
+        <div class=row>{{persona.id}}</div>
+        <div class=row>{{persona.nombre}}</div>
+        <div class=row>{{persona.apellido}}</div>
+        <!-- <div class=row>{{`${persona.fecha_nacimiento.getDay()}-${persona.fecha_nacimiento.getMonth()}-${persona.fecha_nacimiento.getFullYear()}`}}</div> -->
+        <div class=row>1996-06-01</div>
+        <div class=row>{{persona.puesto}}</div>
+        <div class=row>{{persona.sueldo}}</div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <p>Cargando...</p>
+  </ng-template>
